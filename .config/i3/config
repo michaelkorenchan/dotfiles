@@ -25,7 +25,7 @@ font pango:monospace 8
 exec --no-startup-id dex --autostart --environment i3
 
 # Start compositor at start
-#exec_always --no-startup-id picom --config /home/mike/.config/picom/picom.conf -b
+#exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf -b
 exec_always --no-startup-id compfy -b
 #exec_always --no-startup-id brave
 # Fix refresh rate
@@ -64,7 +64,7 @@ floating_modifier $mod
 # start a terminal
 #bindsym $mod+Return exec urxvt
 #bindsym $mod+Return exec cool-retro-term
-bindsym $mod+Return exec kitty --config /home/mike/.config/kitty/kitty.conf
+bindsym $mod+Return exec kitty --config $HOME/.config/kitty/kitty.conf
 
 # start brave browser
 bindsym $mod+Tab exec brave
@@ -211,7 +211,7 @@ bindsym $mod+r mode "resize"
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 exec --no-startup-id /usr/lib/gsd-xsettings
-exec_always feh --bg-scale /home/mike/Pictures/Wallpaper/wallpaper.jpg
+exec_always feh --bg-scale $HOME/.config/wallpaper/wallpaper.jpg
 # Review the lines below and append to ~/.config/i3/config
 
 ## Volume control

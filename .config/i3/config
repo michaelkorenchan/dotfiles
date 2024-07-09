@@ -35,7 +35,7 @@ bindsym $mod+Shift+n exec i3-msg "rename workspace to "$(i3-msg -t get_workspace
 
 # Start compositor at start
 #exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf -b
-# exec_always --no-startup-id compfy -b
+exec_always --no-startup-id compfy -b
 #exec_always --no-startup-id brave
 # Fix refresh rate
 exec_always --no-startup-id xrandr --output DP-0 --mode 3440x1440 --rate 143.94
@@ -76,7 +76,7 @@ floating_modifier $mod
 bindsym $mod+Return exec kitty --config $HOME/.config/kitty/kitty.conf
 
 # start brave browser
-bindsym $mod+Tab exec brave
+bindsym $mod+space exec brave
 
 # open settings 
 bindsym $mod+Shift+Tab exec XDG_CURRENT_DESKTOP=GNOME gnome-control-center
@@ -133,7 +133,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -296,8 +296,8 @@ client.background       $bg
 # PROTIP: You can also dynamically set dmenu's colors this way:
 bindsym $mod+d exec dmenu_run -nb "$c1" -nf "$c2" -sb "$c1" -sf "$fg"
 
-gaps inner 10px
-gaps outer 10px
+gaps inner 0px
+gaps outer 0px
 gaps top 20px
 
 for_window [class="^.*"] border pixel 0

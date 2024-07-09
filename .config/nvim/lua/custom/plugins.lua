@@ -21,6 +21,11 @@ local plugins = {
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
+    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+      vim.lsp.diagnostic.on_publish_diagnostics, {
+        virtual_text = false
+      }
+    )
     end,
   },
   {
@@ -35,12 +40,16 @@ local plugins = {
     "rust-lang/rust.vim",
     ft = "rust",
     init = function () -- init function to run code when package is loaded
-      vim.g.rustfmt_autosave = 1 -- auto-format on save
+      vim.g.rustfmt_autosave = 0 -- auto-format on save
     end
   },
+  -- {
+  --   -- "wellle/context.vim",
+  --   -- lazy = false,
+  -- },
   {
-    "wellle/context.vim",
-    lazy = false,
+    "lewis6991/gitsigns.nvim",
+     current_line_blame_formatter = "<commiter_mail>, <abbrev_sha> - <summary>",
   }
 }
 

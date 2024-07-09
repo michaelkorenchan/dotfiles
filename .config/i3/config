@@ -10,7 +10,8 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 #set $mod Mod4 # windows key
-set $mod Mod1
+#set $mod Mod1 # alt key
+set $mod Mod3
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -24,9 +25,17 @@ font pango:monospace 8
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
+# Start nm-applet on startup to make VPN SSO connections work over GUI
+exec --no-startup-id nm-applet
+
+# Rename workspaces
+bindsym $mod+n exec i3-input -F "rename workspace to "$(i3-msg -t get_workspaces | jq -r "map(select(.focused))[0].num"):%s"" -P "New name: "
+# Clear workspace name
+bindsym $mod+Shift+n exec i3-msg "rename workspace to "$(i3-msg -t get_workspaces | jq -r "map(select(.focused))[0].num")""
+
 # Start compositor at start
 #exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf -b
-exec_always --no-startup-id compfy -b
+# exec_always --no-startup-id compfy -b
 #exec_always --no-startup-id brave
 # Fix refresh rate
 exec_always --no-startup-id xrandr --output DP-0 --mode 3440x1440 --rate 143.94
@@ -53,7 +62,7 @@ set $refresh_i3status killall -SIGUSR1 i3status
 #bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 ## Screenshots
-bindsym $mod+P exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
+#bindsym $mod+P exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
 
 ## Clipboard Screenshots
 bindsym Ctrl+$mod+P exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
@@ -73,7 +82,7 @@ bindsym $mod+Tab exec brave
 bindsym $mod+Shift+Tab exec XDG_CURRENT_DESKTOP=GNOME gnome-control-center
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec --no-startup-id dmenu_run

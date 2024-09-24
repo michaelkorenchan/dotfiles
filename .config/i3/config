@@ -9,7 +9,8 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-#set $mod Mod4 # windows key
+# windows key
+#set $mod Mod4
 #set $mod Mod1 # alt key
 set $mod Mod3
 
@@ -264,22 +265,22 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 # from the generated scheme.
 # NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
 # it fails to get colors from Xresources.
-set_from_resource $bg i3wm.background #000000
-set_from_resource $fg i3wm.foreground #ffffff
-set_from_resource $c1 i3wm.color1 #f0f0f0
-set_from_resource $c2 i3wm.color2 #f0f0f0
-set_from_resource $c3 i3wm.color3 #f0f0f0
-set_from_resource $c4 i3wm.color4 #f0f0f0
-set_from_resource $c5 i3wm.color5 #f0f0f0
-set_from_resource $c6 i3wm.color6 #f0f0f0
-set_from_resource $c7 i3wm.color7 #f0f0f0
+set_from_resource $fg i3wm.foreground #C5C8C6
+set_from_resource $bg i3wm.background #282A2E
+set_from_resource $c1 i3wm.color1 #373B41
+set_from_resource $c2 i3wm.color2 #282A2E
+set_from_resource $c3 i3wm.color3 #282A2E
+set_from_resource $c4 i3wm.color4 #282A2E
+set_from_resource $c5 i3wm.color5 #282A2E
+set_from_resource $c6 i3wm.color6 #282A2E
+set_from_resource $c7 i3wm.color7 #282A2E
 
 # class                 border  backgr. text indicator child_border
-client.focused          $bg     $c6     $bg  $c6       $c6
-client.focused_inactive $bg     $c5     $bg  $c5       $c5
-client.unfocused        $c5     $bg     $c5  $c5       $c5
-client.urgent           $bg     $c6     $bg  $c6       $c6
-client.placeholder      $bg     $c1     $bg  $c6       $c6
+client.focused          $bg     $c1     $fg  $c6       $c6
+client.focused_inactive $bg     $c1     $fg  $c5       $c5
+client.unfocused        $bg     $bg     $fg  $c5       $c5
+client.urgent           $c1     $c1     $fg  $c6       $c6
+client.placeholder      $bg     $c1     $fg  $c6       $c6
 
 client.background       $bg
 
@@ -294,7 +295,8 @@ client.background       $bg
 #}
 
 # PROTIP: You can also dynamically set dmenu's colors this way:
-bindsym $mod+d exec dmenu_run -nb "$c1" -nf "$c2" -sb "$c1" -sf "$fg"
+bindsym $mod+d exec --no-startup-id dmenu_run 
+#-nb "$c1" -nf "$c2" -sb "$c1" -sf "$fg"
 
 gaps inner 0px
 gaps outer 0px

@@ -79,6 +79,7 @@ export EDITOR=nvim
 
 # makes tmux handle kitty better
 export TERM=xterm-256color
+export COLORTERM=truecolor
 
 #. /usr/share/autojump/autojump.bash
 [[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh

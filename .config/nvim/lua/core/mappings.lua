@@ -79,14 +79,14 @@ M.tabufline = {
 
   n = {
     -- cycle through buffers
-    ["<C-p>"] = {
+    ["<C-]>"] = {
       function()
         require("nvchad.tabufline").tabuflineNext()
       end,
       "Goto next buffer",
     },
 
-    ["<C-]>"] = {
+    ["<C-p>"] = {
       function()
         require("nvchad.tabufline").tabuflinePrev()
       end,

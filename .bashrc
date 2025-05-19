@@ -75,11 +75,16 @@ export PATH=${PATH}:/opt/pycharm-community-2020.3.3/bin/
 export PATH=$PATH:/snap/bin/
 export PATH=$PATH:$HOME/.local/bin
 
-export EDITOR=nvim
+export EDITOR=helix
 
 # makes tmux handle kitty better
 export TERM=xterm-256color
 export COLORTERM=truecolor
+
+# language support
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
 
 #. /usr/share/autojump/autojump.bash
 [[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
@@ -94,6 +99,9 @@ fi
 if [ -f $HOME/.bashrc_aliases ]; then
     . $HOME/.bashrc_aliases
 fi
+
+# turn off the stupid bell sound
+bind 'set bell-style none'
 
 
 # OLD

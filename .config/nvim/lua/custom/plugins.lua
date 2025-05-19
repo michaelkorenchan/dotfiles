@@ -50,7 +50,16 @@ local plugins = {
   {
     "lewis6991/gitsigns.nvim",
      current_line_blame_formatter = "<commiter_mail>, <abbrev_sha> - <summary>",
-  }
+  },
+  {
+        'simrat39/rust-tools.nvim',
+        lazy = false,
+  },
+  -- {
+  --   "ngemily/vim-vp4",
+  --   lazy = false,
+  -- }
+
 }
 
 return plugins
